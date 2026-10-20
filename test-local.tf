@@ -16,3 +16,7 @@ module "aws-instance" {
   source = "./aws-ec2"
   
 }
+
+module "aws-vpc" {
+  source = "./aws-vpc"
+}
