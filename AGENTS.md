@@ -60,6 +60,35 @@ The only rules that matter for contributions are the Git rules below.
   same commit.
 - If a commit needs explanation, use the body to describe **why**, not what.
 
+### Commit types
+
+| Type | Use for | Example |
+|---|---|---|
+| `feat` | New capability: module, variable, output, resource | `feat(ec2): add tags variable` |
+| `fix` | Something was wrong and is now corrected | `fix(ec2): use latest Amazon Linux 2023 AMI` |
+| `docs` | Documentation only | `docs: add usage example to README` |
+| `refactor` | Reorganize code without changing behavior | `refactor(ec2): move validation into variables.tf` |
+| `perf` | Performance improvement | `perf(lambda): reduce cold start memory` |
+| `test` | Add or fix tests | `test(vpc): cover invalid cidr` |
+| `build` | Build system or dependencies | `build: bump aws provider to 6.x` |
+| `ci` | CI/CD configuration | `ci: run terraform validate on pull requests` |
+| `style` | Formatting only, no logic change | `style: run terraform fmt` |
+| `chore` | Maintenance, tooling, housekeeping | `chore: initialize terraform modules repository` |
+| `revert` | Revert a previous commit | `revert: feat(ec2): add tags variable` |
+
+**Rule of thumb:** does this add a new capability to the repository? → `feat`. Does it correct
+something that was broken? → `fix`. Does it only change how the code reads or is organized? →
+`docs` / `refactor` / `style`.
+
+A breaking change adds `!` after the type/scope and a `BREAKING CHANGE:` footer:
+
+```text
+feat(vpc)!: rename cidr_block to vpc_cidr
+
+BREAKING CHANGE: `cidr_block` was renamed to `vpc_cidr`.
+Update all module calls before upgrading.
+```
+
 ### Pull requests
 
 - All changes reach `main` through a pull request, including small fixes and documentation.
