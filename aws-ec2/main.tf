@@ -1,11 +1,4 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = ">= 5.0.0"
-    }
-  }
-}
+
 
 data "aws_ami" "ec2_server_ami" {
   region      = var.ec2_server_region

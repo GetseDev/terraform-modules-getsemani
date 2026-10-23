@@ -25,21 +25,21 @@ variable "getsemani_vpc_region" {
 variable "getsemani_vpc_subnet" {
   description = "Configuracion Subnet."
   type = map(object({
-    cidr    = string
-    az      = string
+    cidr   = string
+    az     = string
     public = bool
   }))
 
   default = {
     pubA = {
-      cidr    = "10.0.10.0/24",
-      az      = "us-east-1a",
+      cidr   = "10.0.10.0/24",
+      az     = "us-east-1a",
       public = true
     },
 
     privB = {
-      cidr    = "10.0.20.0/24",
-      az      = "us-east-1b",
+      cidr   = "10.0.20.0/24",
+      az     = "us-east-1b",
       public = false
     }
   }
