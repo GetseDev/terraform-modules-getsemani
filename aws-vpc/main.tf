@@ -8,6 +8,17 @@ resource "aws_vpc" "getsemani_vpc" {
   }
 }
 
+resource "aws_route_table" "getsemani_vpc_route_tale" {
+  vpc_id = aws_vpc.getsemani_vpc.id
+
+  route {
+    cidr_block = aws_vpc.getsemani_vpc.cidr_block
+    gateway_id = aws_internet_gateway.getsemani_vpc_igw.id
+
+  }
+
+}
+
 resource "aws_internet_gateway" "getsemani_vpc_igw" {
   vpc_id = aws_vpc.getsemani_vpc.id
   region = var.getsemani_vpc_region
