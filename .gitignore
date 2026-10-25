@@ -36,3 +36,7 @@ credentials
 .idea/
 .vscode/
 *.swp
+
+# Generated SSH keys (aws-ssh-key module output)
+aws-ssh-key/key
+*.pem
