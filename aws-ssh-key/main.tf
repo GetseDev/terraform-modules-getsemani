@@ -6,6 +6,11 @@ resource "tls_private_key" "getsemani_ssh_key" {
 resource "aws_key_pair" "getsemani_aws_key_pair" {
   key_name   = var.getsemani_ssh_key_aws_key_name
   public_key = tls_private_key.getsemani_ssh_key.public_key_openssh
+
+  tags = {
+    Name = var.getsemani_ssh_key_aws_key_name
+  }
+
 }
 
 resource "local_file" "getsemani_local_file_private_key" {
