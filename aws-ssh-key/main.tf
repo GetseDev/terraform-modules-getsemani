@@ -15,6 +15,6 @@ resource "aws_key_pair" "getsemani_aws_key_pair" {
 
 resource "local_file" "getsemani_local_file_private_key" {
   content         = tls_private_key.getsemani_ssh_key.private_key_pem
-  filename        = "${var.getsemani_ssh_key_directory}/${var.getsemani_ssh_key_aws_key_name}"
+  filename        = "${var.getsemani_ssh_key_directory}/${var.getsemani_ssh_key_aws_key_name}.pem"
   file_permission = var.getsemani_ssh_key_file_permission
 }
