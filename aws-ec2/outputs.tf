@@ -1,4 +1,4 @@
-output "ec2-server-public-ip" { 
+output "ec2-server-public-ip" {
   value = aws_instance.ec2_server.public_ip
 }
 
